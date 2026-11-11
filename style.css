@@ -1,0 +1,460 @@
+
+/* CONFIGURACION GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #10070d,
+        #2b101e,
+        #120810
+    );
+    font-family: 'Georgia', serif;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* PANTALLA PRINCIPAL */
+.inicio {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    position: relative;
+}
+
+/* CORAZON */
+.corazon {
+    color: #e88ca9;
+    font-size: 65px;
+    margin-bottom: 25px;
+    animation: latido 1.5s infinite;
+    text-shadow: 0 0 25px #e88ca9;
+}
+
+/* TITULOS */
+.subtitulo {
+    color: #dba8b9;
+    letter-spacing: 5px;
+    font-size: 11px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(45px, 8vw, 75px);
+    font-weight: normal;
+    font-style: italic;
+    color: #f3c5d4;
+    margin-bottom: 25px;
+    text-shadow: 0 0 20px #a94e70;
+}
+
+/* MENSAJE */
+.mensaje {
+    max-width: 500px;
+    color: #d9c5ce;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+/* BOTON */
+button {
+    background: linear-gradient(
+        135deg,
+        #b94e72,
+        #e88ca9
+    );
+    color: white;
+    border: none;
+    padding: 16px 35px;
+    border-radius: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 0 25px #b94e7260;
+    font-family: Georgia, serif;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px #e88ca9;
+}
+
+/* FIRMA */
+.firma {
+    position: absolute;
+    bottom: 30px;
+    color: #a98b99;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* ANIMACION DEL CORAZON */
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* ADAPTACION PARA CELULARES */
+@media (max-width: 600px) {
+    .subtitulo {
+        letter-spacing: 3px;
+        font-size: 9px;
+    }
+
+    .mensaje {
+        font-size: 16px;
+    }
+
+    button {
+        padding: 14px 25px;
+    }
+}
+
+/* FONDO DE LA CARTA */
+.carta-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 3, 7, 0.88);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 100;
+    animation: aparecer 0.5s ease;
+}
+
+/* CONTENEDOR DE LA CARTA */
+.carta {
+    position: relative;
+    background: linear-gradient(
+        145deg,
+        #321522,
+        #1a0b13
+    );
+    border: 1px solid #c77b98;
+    border-radius: 20px;
+    padding: 45px 35px;
+    max-width: 550px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    text-align: center;
+    box-shadow: 0 0 50px #c05a8060;
+    animation: subir 0.7s ease;
+}
+
+.carta h2 {
+    color: #f1b4c9;
+    font-size: 35px;
+    font-weight: normal;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.carta p {
+    color: #e4d1d9;
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+
+.corazon-carta {
+    color: #e88ca9;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.despedida {
+    color: #e9a8bd !important;
+    font-style: italic;
+}
+
+.cerrar {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: transparent;
+    color: #f3c5d4;
+    font-size: 28px;
+    padding: 3px 12px;
+    box-shadow: none;
+}
+
+.cerrar:hover {
+    background: transparent;
+    transform: scale(1.2);
+    box-shadow: none;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes subir {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* BARRA DE DESPLAZAMIENTO ELEGANTE */
+.carta {
+    scrollbar-width: thin;
+    scrollbar-color: #b96b88 #24101a;
+}
+
+.carta::-webkit-scrollbar {
+    width: 7px;
+}
+
+.carta::-webkit-scrollbar-track {
+    background: #24101a;
+    border-radius: 10px;
+}
+
+.carta::-webkit-scrollbar-thumb {
+    background: #b96b88;
+    border-radius: 10px;
+}
+
+/* BOTON DE RECUERDOS */
+.ver-recuerdos {
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* GALERIA */
+.galeria {
+    max-width: 650px;
+}
+
+.foto-recuerdo {
+    margin: 30px auto;
+    padding: 12px;
+    background: #3a1b29;
+    border: 1px solid #a85b79;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px #00000050;
+}
+
+.foto-recuerdo img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    border-radius: 10px;
+    display: block;
+    background: #160b11;
+}
+
+.foto-recuerdo h3 {
+    color: #f0b3c8;
+    font-size: 21px;
+    font-weight: normal;
+    font-style: italic;
+    margin-top: 18px;
+}
+
+.foto-recuerdo p {
+    color: #d9bdc9;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.reproductor {
+    margin-top: 20px;
+}
+
+#controlMusica {
+    background: transparent;
+    border: 1px solid #d98aa6;
+    color: #e9b4c5;
+    box-shadow: none;
+    font-size: 13px;
+    padding: 12px 25px;
+}
+
+#controlMusica:hover {
+    background: #57253b;
+    box-shadow: 0 0 20px #d98aa650;
+}
+
+/* PANTALLA FINAL */
+.pantalla-final {
+    max-width: 600px;
+    padding: 45px 35px;
+}
+
+.pantalla-final .pregunta {
+    font-size: 27px;
+    line-height: 1.5;
+    color: #f0a9c0;
+    margin: 30px 0;
+}
+
+.opciones-finales {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.aceptar {
+    background: linear-gradient(135deg, #c6537b, #ed8bab);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.pensarlo {
+    background: transparent;
+    border: 1px solid #d98aa6;
+    color: #e9b4c5;
+    padding: 13px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.pensarlo:hover {
+    background: #57253b;
+}
+
+/* ANIMACIÓN FINAL ROMÁNTICA */
+
+.pantalla-final {
+    position: relative;
+    overflow: hidden;
+}
+
+.corazon-animado {
+    animation: latido 1.2s infinite;
+    font-size: 55px;
+}
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+/* LLUVIA DE CORAZONES */
+
+.lluvia-corazones {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.corazon-flotante {
+    position: absolute;
+    bottom: -40px;
+    color: #ed83a8;
+    font-size: 22px;
+    opacity: 0;
+    animation: subir-corazon 6s linear infinite;
+}
+
+@keyframes subir-corazon {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-750px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.frase-final {
+    color: #efa5bd;
+    font-style: italic;
+    line-height: 1.5;
+    margin: 30px 0;
+}
+
+.mensaje-final {
+    font-size: 20px;
+    color: #f4c2d2;
+}
+/* CORRECCIÓN DE LA PANTALLA FINAL */
+.pantalla-final {
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 35px 30px;
+    box-sizing: border-box;
+}
+
+.opciones-finales {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 30px 0;
+    width: 100%;
+}
+
+.opciones-finales button {
+    width: 100%;
+    min-height: 55px;
+    padding: 15px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.aceptar {
+    background: linear-gradient(135deg, #c94f80, #ed82a9);
+    color: white;
+    border: none;
+}
+
+.pensarlo {
+    background: transparent;
+    color: #f0a9c2;
+    border: 1px solid #e88bad;
+}
+
+@media (max-width: 600px) {
+    .pantalla-final {
+        width: 94%;
+        padding: 25px 18px;
+    }
+}
